@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Segurança - Simulação de Layout</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones via FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <!-- Usando a fonte parecida com a da imagem -->
+            <h1>S T A R L I N K</h1>
+        </div>
+    </header>
+
+    <main>
+        <!-- Topo / Alerta -->
+        <section class="hero">
+            <div class="alert-badge red">
+                <i class="fa-solid fa-triangle-exclamation"></i> SIMULAÇÃO DE LAYOUT - NÃO É UMA COBRANÇA REAL
+            </div>
+
+            <h2>Este site é apenas um modelo de estudo</h2>
+            <p class="subtitle">
+                Sites que pedem pagamento via Pix para "desbloquear chip de satélite" são golpes. 
+                Nenhuma operadora ou provedor sério cobra por esse tipo de regularização após a compra.
+            </p>
+
+            <div class="action-row">
+                <button class="btn-white" onclick="alert('Este é apenas um site de demonstração. Nenhum pagamento será processado.')">
+                    Entendi (Aviso) <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div class="timer">
+                    <i class="fa-regular fa-clock"></i> Expira em <span id="countdown">01:00:00</span>
+                </div>
+            </div>
+
+            <div class="alert-badge dark-red" style="margin-top: 30px;">
+                <i class="fa-solid fa-circle-exclamation"></i> ALERTA DE FRAUDE — MENSAGEM DE TESTE
+            </div>
+        </section>
+
+        <!-- Card Principal -->
+        <section class="pricing-card">
+            <h3>Taxa de Regularização (Fictícia)</h3>
+            <p class="card-subtitle">Pagamento único · Este valor não é real</p>
+
+            <div class="price-box">
+                <span class="old-price">De R$ 49,90</span>
+                <div class="price"><span>R$</span>19,<span class="cents">90</span></div>
+                <p class="price-note">Desconto de novo cliente aplicado — expira em<br>minutos</p>
+                <div class="savings-badge">Economia de R$ 30 · Somente agora</div>
+            </div>
+
+            <ul class="features-list">
+                <li><i class="fa-solid fa-check"></i> Regularização fiscal junto à Receita Federal (Falso)</li>
+                <li><i class="fa-solid fa-check"></i> Certificado de homologação ANATEL em seu nome (Falso)</li>
+                <li><i class="fa-solid fa-check"></i> Desbloqueio imediato do chip para uso no Brasil (Falso)</li>
+                <li><i class="fa-solid fa-check"></i> Liberação garantida em até 2 horas úteis (Falso)</li>
+            </ul>
+
+            <button class="btn-white full-width" onclick="alert('Demonstração: Nenhum dado será coletado e nenhum pagamento será feito.')">
+                Pagar Taxa e Liberar Chip — R$ 19,90 <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <div class="secure-payment">
+                <i class="fa-solid fa-lock"></i> Pagamento seguro via PIX (Exemplo)
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="testimonials">
+            <div class="badge-green">
+                <i class="fa-solid fa-circle-check"></i> COMPRAS VERIFICADAS (FAKE)
+            </div>
+            <h3>O que estão dizendo</h3>
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span>4,9 baseado em 2.847 avaliações</span>
+            </div>
+
+            <!-- Card Depoimento 1 -->
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Achei que era opcional e demorei. Assim que paguei, em menos de 1 hora o chip liberou. Não deixe pra depois."</p>
+                <div class="user-info">
+                    <div class="avatar" style="background-color: #5c3a6e;">MR</div>
+                    <div>
+                        <strong>Marcos R. <i class="fa-solid fa-circle-check verified-icon"></i></strong>
+                        <span>São Paulo · há 2d</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Depoimento 2 -->
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Sem a taxa o chip nem ativa. Paguei, veio o certificado e uso na fazenda todo dia."</p>
+                <div class="user-info">
+                    <div class="avatar" style="background-color: #1e5a47;">CA</div>
+                    <div>
+                        <strong>Carla A. <i class="fa-solid fa-circle-check verified-icon"></i></strong>
+                        <span>Mato Grosso · há 5d</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Depoimento 3 -->
+            <div class="review-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"Serviço rápido, certificado chegou no email. Essa etapa é o que faz o chip funcionar aqui."</p>
+                <div class="user-info">
+                    <div class="avatar" style="background-color: #6e2c3f;">JF</div>
+                    <div>
+                        <strong>João F. <i class="fa-solid fa-circle-check verified-icon"></i></strong>
+                        <span>Pará · há 8d</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="verified-box">
+                <i class="fa-solid fa-circle-check"></i> Avaliações verificadas · clientes que compraram e receberam
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h2 class="footer-logo">S T A R L I N K</h2>
+        <div class="footer-links">
+            <a href="#">Como Funciona</a>
+            <a href="#">Oferta</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+        </div>
+        <div class="footer-disclaimer">
+            <p>Este site é uma recriação de layout para fins educacionais e de estudo de design. Não possui vínculo com a SpaceX ou a marca Starlink.</p>
+            <p>A disponibilidade do serviço pode variar de acordo com a localização e cobertura de satélites.</p>
+            <p>© 2026 Simulação de Layout. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Temporizador simples apenas para efeito visual
+        let timeLeft = 3600; // 1 hora em segundos
+        const timerElement = document.getElementById('countdown');
+
+        function updateTimer() {
+            if (timeLeft <= 0) return;
+            timeLeft--;
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+            
+            timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 25px 0;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+    margin-bottom: 60px;
+}
+
+.logo-container h1 {
+    font-size: 20px;
+    letter-spacing: 10px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Container Principal */
+main {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.alert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.alert-badge.red {
+    background-color: #2a1215;
+    color: #ff6b6b;
+    border: 1px solid #4a1c1c;
+}
+
+.alert-badge.dark-red {
+    background-color: #1a0b0d;
+    color: #ff6b6b;
+    border: 1px solid #331316;
+    padding: 6px 14px;
+}
+
+.hero h2 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.hero .subtitle {
+    color: #a0a0a0;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botões */
+.action-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: opacity 0.2s;
+}
+
+.btn-white:hover {
+    opacity: 0.9;
+}
+
+.btn-white.full-width {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ff6b6b;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #1a0b0d;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: 1px solid #331316;
+}
+
+/* Card de Preço */
+.pricing-card {
+    background-color: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 20px;
+    width: 100%;
+    padding: 40px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.pricing-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.card-subtitle {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.price-box {
+    background-color: #000000;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.old-price {
+    color: #666;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.price {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin: 5px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.price span:first-child {
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 4px;
+}
+
+.price .cents {
+    font-size: 30px;
+}
+
+.price-note {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.savings-badge {
+    display: inline-block;
+    background-color: #0a1f14;
+    color: #4ade80;
+    border: 1px solid #1a3a26;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Lista de Features */
+.features-list {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.features-list li {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features-list li i {
+    color: #22c55e;
+    font-size: 14px;
+}
+
+.secure-payment {
+    color: #666;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Depoimentos */
+.testimonials {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.badge-green {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #0a1f14;
+    color: #22c55e;
+    border: 1px solid #1a3a26;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.testimonials h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 30px;
+    color: #fbbf24;
+    font-size: 14px;
+}
+
+.rating span {
+    color: #fff;
+    margin-left: 8px;
+    font-weight: 600;
+}
+
+.review-card {
+    background-color: #141414;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.review-card .stars {
+    color: #fbbf24;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    color: #ddd;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.user-info strong {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.verified-icon {
+    color: #22c55e;
+    font-size: 12px;
+}
+
+.user-info span {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.verified-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #061a10;
+    border: 1px solid #1a3a26;
+    color: #22c55e;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    border-top: 1px solid #1a1a1a;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-logo {
+    font-size: 16px;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #aaa;
+}
+
+.footer-disclaimer {
+    color: #666;
+    font-size: 11px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-disclaimer p {
+    margin-bottom: 8px;
+}
+
+/* Responsividade para celular */
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 24px;
+    }
+    .action-row {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-white {
+        width: 100%;
+    }
+    .pricing-card {
+        padding: 25px 20px;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
