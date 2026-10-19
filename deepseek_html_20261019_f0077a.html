@@ -3,80 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviso de Segurança - Simulação de Layout</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Ícones via FontAwesome -->
+    <title>Starlink - Regularização (Simulação)</title>
+    
+    <!-- Carregando a fonte Inter do Google (para ficar igual ao original) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS EMBUTIDO (Não precisa de arquivo separado) -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 1px solid #1a1a1a;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Substitua a tag h1 abaixo pela tag img da sua logo se preferir */
+        .logo {
+            font-size: 20px;
+            letter-spacing: 12px;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        /* Container Principal */
+        main {
+            width: 100%;
+            max-width: 580px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        /* Hero / Topo */
+        .hero {
+            text-align: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .alert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .alert-badge.red {
+            background-color: #1a0b0d;
+            color: #ff6b6b;
+            border: 1px solid #331316;
+        }
+
+        .hero h2 {
+            font-size: 34px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            color: #a0a0a0;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botões do Topo */
+        .action-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: scale(1.02);
+        }
+
+        .timer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ff6b6b;
+            font-size: 14px;
+            font-weight: 500;
+            background-color: #110607;
+            padding: 16px 22px;
+            border-radius: 30px;
+            border: 1px solid #331316;
+        }
+
+        .badge-dark {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #110607;
+            color: #ff6b6b;
+            border: 1px solid #331316;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* Card de Preço */
+        .pricing-card {
+            background-color: #0f0f0f;
+            border: 1px solid #222;
+            border-radius: 24px;
+            width: 100%;
+            padding: 40px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .price-box {
+            background-color: #000000;
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 35px 20px;
+            margin-bottom: 35px;
+        }
+
+        .old-price {
+            color: #666;
+            text-decoration: line-through;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .price span.currency {
+            font-size: 24px;
+            font-weight: 500;
+            margin-right: 6px;
+        }
+
+        .price span.cents {
+            font-size: 32px;
+        }
+
+        .price-note {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .savings-badge {
+            display: inline-block;
+            background-color: #061a10;
+            color: #4ade80;
+            border: 1px solid #1a3a26;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Lista de Benefícios */
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 35px;
+            padding: 0 10px;
+        }
+
+        .features-list li {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .features-list li i {
+            color: #22c55e;
+            font-size: 14px;
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 18px;
+            border-radius: 30px;
+            background-color: #ffffff;
+            color: #000;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .secure-payment {
+            color: #666;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Depoimentos */
+        .testimonials {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .badge-green {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #061a10;
+            color: #22c55e;
+            border: 1px solid #1a3a26;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .testimonials h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 40px;
+            color: #fbbf24;
+            font-size: 16px;
+        }
+
+        .rating span {
+            color: #fff;
+            margin-left: 10px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .review-card {
+            background-color: #141414;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .review-card .stars {
+            color: #fbbf24;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .review-card p {
+            color: #e0e0e0;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .user-info strong {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .verified-icon {
+            color: #22c55e;
+            font-size: 12px;
+        }
+
+        .user-info span {
+            display: block;
+            font-size: 13px;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .verified-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #061a10;
+            border: 1px solid #1a3a26;
+            color: #22c55e;
+            padding: 18px;
+            border-radius: 16px;
+            font-size: 13px;
+            margin-top: 40px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            border-top: 1px solid #1a1a1a;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            letter-spacing: 10px;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-disclaimer {
+            color: #555;
+            font-size: 11px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .footer-disclaimer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsividade (Celular) */
+        @media (max-width: 600px) {
+            .hero h2 { font-size: 28px; }
+            .action-row { flex-direction: column; width: 100%; }
+            .btn-white, .timer { width: 100%; justify-content: center; }
+            .pricing-card { padding: 25px 15px; }
+            .price { font-size: 50px; }
+            .footer-links { flex-direction: column; gap: 15px; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <div class="logo-container">
-            <!-- Usando a fonte parecida com a da imagem -->
-            <h1>S T A R L I N K</h1>
-        </div>
+        <div class="logo">Starlink</div>
+        <!-- Se quiser usar sua imagem: <img src="sua-logo.png" alt="Logo" style="height: 24px;"> -->
     </header>
 
     <main>
-        <!-- Topo / Alerta -->
         <section class="hero">
             <div class="alert-badge red">
-                <i class="fa-solid fa-triangle-exclamation"></i> SIMULAÇÃO DE LAYOUT - NÃO É UMA COBRANÇA REAL
+                <i class="fa-solid fa-triangle-exclamation"></i> Simulação de Layout - Não é cobrança real
             </div>
 
-            <h2>Este site é apenas um modelo de estudo</h2>
+            <h2>Seu chip está bloqueado<br>até a regularização</h2>
             <p class="subtitle">
-                Sites que pedem pagamento via Pix para "desbloquear chip de satélite" são golpes. 
-                Nenhuma operadora ou provedor sério cobra por esse tipo de regularização após a compra.
+                Chips satelitais internacionais precisam ser regularizados antes do primeiro uso no Brasil. Sem esta taxa, seu chip permanece bloqueado e não conecta. Regularize agora e libere hoje.
             </p>
 
             <div class="action-row">
                 <button class="btn-white" onclick="alert('Este é apenas um site de demonstração. Nenhum pagamento será processado.')">
-                    Entendi (Aviso) <i class="fa-solid fa-arrow-right"></i>
+                    Regularizar Agora — R$ 19,90 <i class="fa-solid fa-arrow-right"></i>
                 </button>
                 <div class="timer">
-                    <i class="fa-regular fa-clock"></i> Expira em <span id="countdown">01:00:00</span>
+                    <i class="fa-regular fa-clock"></i> Expira em <span id="countdown">00:58:22</span>
                 </div>
             </div>
 
-            <div class="alert-badge dark-red" style="margin-top: 30px;">
-                <i class="fa-solid fa-circle-exclamation"></i> ALERTA DE FRAUDE — MENSAGEM DE TESTE
+            <div class="badge-dark">
+                <i class="fa-solid fa-circle-exclamation"></i> TAXA OBRIGATÓRIA — DESCONTO ATIVO
             </div>
         </section>
 
-        <!-- Card Principal -->
         <section class="pricing-card">
-            <h3>Taxa de Regularização (Fictícia)</h3>
-            <p class="card-subtitle">Pagamento único · Este valor não é real</p>
+            <h3>Taxa de Regularização Fiscal</h3>
+            <p class="card-subtitle">Pagamento único · Sem essa taxa o chip permanece bloqueado</p>
 
             <div class="price-box">
                 <span class="old-price">De R$ 49,90</span>
-                <div class="price"><span>R$</span>19,<span class="cents">90</span></div>
+                <div class="price">
+                    <span class="currency">R$</span>19<span class="cents">,90</span>
+                </div>
                 <p class="price-note">Desconto de novo cliente aplicado — expira em<br>minutos</p>
                 <div class="savings-badge">Economia de R$ 30 · Somente agora</div>
             </div>
 
             <ul class="features-list">
-                <li><i class="fa-solid fa-check"></i> Regularização fiscal junto à Receita Federal (Falso)</li>
-                <li><i class="fa-solid fa-check"></i> Certificado de homologação ANATEL em seu nome (Falso)</li>
-                <li><i class="fa-solid fa-check"></i> Desbloqueio imediato do chip para uso no Brasil (Falso)</li>
-                <li><i class="fa-solid fa-check"></i> Liberação garantida em até 2 horas úteis (Falso)</li>
+                <li><i class="fa-solid fa-check"></i> Regularização fiscal junto à Receita Federal</li>
+                <li><i class="fa-solid fa-check"></i> Certificado de homologação ANATEL em seu nome</li>
+                <li><i class="fa-solid fa-check"></i> Desbloqueio imediato do chip para uso no Brasil</li>
+                <li><i class="fa-solid fa-check"></i> Liberação garantida em até 2 horas úteis</li>
             </ul>
 
-            <button class="btn-white full-width" onclick="alert('Demonstração: Nenhum dado será coletado e nenhum pagamento será feito.')">
+            <button class="btn-full" onclick="alert('Demonstração: Nenhum dado será coletado e nenhum pagamento será feito.')">
                 Pagar Taxa e Liberar Chip — R$ 19,90 <i class="fa-solid fa-arrow-right"></i>
             </button>
 
             <div class="secure-payment">
-                <i class="fa-solid fa-lock"></i> Pagamento seguro via PIX (Exemplo)
+                <i class="fa-solid fa-lock"></i> Pagamento seguro via PIX
             </div>
         </section>
 
-        <!-- Depoimentos -->
         <section class="testimonials">
             <div class="badge-green">
-                <i class="fa-solid fa-circle-check"></i> COMPRAS VERIFICADAS (FAKE)
+                <i class="fa-solid fa-circle-check"></i> COMPRAS VERIFICADAS
             </div>
             <h3>O que estão dizendo</h3>
             <div class="rating">
@@ -88,7 +537,6 @@
                 <span>4,9 baseado em 2.847 avaliações</span>
             </div>
 
-            <!-- Card Depoimento 1 -->
             <div class="review-card">
                 <div class="stars">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -103,7 +551,6 @@
                 </div>
             </div>
 
-            <!-- Card Depoimento 2 -->
             <div class="review-card">
                 <div class="stars">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -118,7 +565,6 @@
                 </div>
             </div>
 
-            <!-- Card Depoimento 3 -->
             <div class="review-card">
                 <div class="stars">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -139,9 +585,8 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <h2 class="footer-logo">S T A R L I N K</h2>
+        <div class="footer-logo">STARLINK</div>
         <div class="footer-links">
             <a href="#">Como Funciona</a>
             <a href="#">Oferta</a>
@@ -149,27 +594,23 @@
             <a href="#">Política de Privacidade</a>
         </div>
         <div class="footer-disclaimer">
-            <p>Este site é uma recriação de layout para fins educacionais e de estudo de design. Não possui vínculo com a SpaceX ou a marca Starlink.</p>
+            <p>Este serviço é oferecido em parceria com a tecnologia Starlink Direct-to-Cell. Starlink é uma marca registrada da SpaceX.</p>
             <p>A disponibilidade do serviço pode variar de acordo com a localização e cobertura de satélites.</p>
-            <p>© 2026 Simulação de Layout. Todos os direitos reservados.</p>
+            <p>© 2026 Chip Virtual Starlink. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Temporizador simples apenas para efeito visual
-        let timeLeft = 3600; // 1 hora em segundos
+        let timeLeft = 3502; // 58 mins e 22 segs
         const timerElement = document.getElementById('countdown');
-
-        function updateTimer() {
+        setInterval(() => {
             if (timeLeft <= 0) return;
             timeLeft--;
-            const hours = Math.floor(timeLeft / 3600);
-            const minutes = Math.floor((timeLeft % 3600) / 60);
-            const seconds = timeLeft % 60;
-            
-            timerElement.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-        setInterval(updateTimer, 1000);
+            const h = Math.floor(timeLeft / 3600).toString().padStart(2, '0');
+            const m = Math.floor((timeLeft % 3600) / 60).toString().padStart(2, '0');
+            const s = (timeLeft % 60).toString().padStart(2, '0');
+            timerElement.textContent = `${h}:${m}:${s}`;
+        }, 1000);
     </script>
 </body>
 </html>
